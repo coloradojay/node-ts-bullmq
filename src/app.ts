@@ -12,6 +12,7 @@ import hpp from 'hpp';
 import morgan from 'morgan';
 import { myQueue } from './queues/myQueue';
 import apiRouter from './routes';
+import { setUpWorkers } from './utils/setUpWorkers';
 
 dotenv.config();
 
@@ -33,6 +34,8 @@ app.use(helmet());
 app.use(hpp());
 app.use(morgan('dev'));
 app.use(express.json());
+
+setUpWorkers('myQueue');
 
 // Routes
 app.use('/api', apiRouter);
