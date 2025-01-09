@@ -19,6 +19,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const serverAdapter = new ExpressAdapter();
+
 serverAdapter.setBasePath('/ui');
 
 createBullBoard({
